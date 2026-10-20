@@ -27,7 +27,11 @@ const Products = (() => {
         aria-label="Browse ${cat.name}"
         id="cat-${cat.id}"
       >
-        <div class="category-icon">${cat.icon}</div>
+        <div class="category-icon">
+          ${cat.iconImg
+            ? `<img src="${cat.iconImg}" alt="${cat.name}" class="category-icon-img" loading="lazy">`
+            : `<span class="category-icon-emoji">${cat.icon}</span>`}
+        </div>
         <span class="category-name">${cat.name}</span>
       </button>
     `).join("");

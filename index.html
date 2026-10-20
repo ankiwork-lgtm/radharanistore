@@ -239,9 +239,11 @@
           <!-- Right column: visual (hidden on mobile, visible on desktop) -->
           <div class="hero-visual" aria-hidden="true">
 
-            <!-- Emoji + float cards confined to this stage so cards don't overlap bubbles -->
+            <!-- All 6 cards + basket icon orbit inside this stage -->
             <div class="hero-visual-stage">
               <svg class="icon hero-visual-icon" aria-hidden="true"><use href="#icon-shopping-basket"></use></svg>
+
+              <!-- Float card 1 — 12 o'clock -->
               <div class="hero-float-card hero-float-card--quality">
                 <svg class="icon float-icon" aria-hidden="true" style="color: var(--brand-green);"><use href="#icon-shield-check"></use></svg>
                 <div>
@@ -249,6 +251,8 @@
                   <div class="hero-float-card-sub">Guaranteed Fresh</div>
                 </div>
               </div>
+
+              <!-- Float card 2 — 6 o'clock -->
               <div class="hero-float-card hero-float-card--price">
                 <svg class="icon float-icon" aria-hidden="true" style="color: var(--primary);"><use href="#icon-tag"></use></svg>
                 <div>
@@ -256,27 +260,32 @@
                   <div class="hero-float-card-sub">Daily Deals</div>
                 </div>
               </div>
-            </div><!-- /hero-visual-stage -->
 
-            <!-- Feature bubbles -->
-            <div class="hero-bubbles">
-              <span class="hero-bubble hero-bubble--brand">
-                <svg class="icon" aria-hidden="true"><use href="#icon-truck"></use></svg>
-                Free Home Delivery
-              </span>
-              <span class="hero-bubble hero-bubble--accent">
+              <!-- Bubble 1 — 2 o'clock -->
+              <span class="hero-bubble hero-bubble--accent hero-bubble--spices">
                 <svg class="icon" aria-hidden="true"><use href="#icon-flame"></use></svg>
                 Pure Spices
               </span>
-              <span class="hero-bubble hero-bubble--brand">
+
+              <!-- Bubble 2 — 4 o'clock -->
+              <span class="hero-bubble hero-bubble--brand hero-bubble--delivery">
+                <svg class="icon" aria-hidden="true"><use href="#icon-truck"></use></svg>
+                Free Home Delivery
+              </span>
+
+              <!-- Bubble 3 — 8 o'clock -->
+              <span class="hero-bubble hero-bubble--brand hero-bubble--dryfruits">
                 <svg class="icon" aria-hidden="true"><use href="#icon-package"></use></svg>
                 Premium Dry Fruits
               </span>
-              <span class="hero-bubble hero-bubble--accent">
+
+              <!-- Bubble 4 — 10 o'clock -->
+              <span class="hero-bubble hero-bubble--accent hero-bubble--trusted">
                 <svg class="icon" aria-hidden="true"><use href="#icon-home"></use></svg>
                 Trusted by Families
               </span>
-            </div>
+
+            </div><!-- /hero-visual-stage -->
 
           </div><!-- /hero-visual -->
 
@@ -351,22 +360,22 @@
         </div>
         <div class="wwo-grid">
           <div class="wwo-card">
-            <div class="wwo-card-icon">🌾</div>
+            <div class="wwo-card-icon"><img src="images/icons/wwo-dal.jpg" alt="Dal & Pulses" class="wwo-icon-img" loading="lazy"></div>
             <div class="wwo-card-label">पॉलिश फ्री दालें</div>
             <div class="wwo-card-sub">Polish-free Top Quality Dals<br><span class="wwo-card-note">सेहत से कोई समझौता नहीं</span></div>
           </div>
           <div class="wwo-card">
-            <div class="wwo-card-icon">🍚</div>
+            <div class="wwo-card-icon"><img src="images/icons/wwo-rice.jpg" alt="Basmati Rice" class="wwo-icon-img" loading="lazy"></div>
             <div class="wwo-card-label">बासमती चावल</div>
             <div class="wwo-card-sub">Premium Basmati Rice</div>
           </div>
           <div class="wwo-card">
-            <div class="wwo-card-icon">🌶️</div>
+            <div class="wwo-card-icon"><img src="images/icons/wwo-spices.jpg" alt="Home Spices" class="wwo-icon-img" loading="lazy"></div>
             <div class="wwo-card-label">घरेलू मसाले</div>
             <div class="wwo-card-sub">Pure Whole &amp; Ground Home Spices<br><span class="wwo-card-note">शुद्ध साबुत एवं पिसे हुए</span></div>
           </div>
           <div class="wwo-card">
-            <div class="wwo-card-icon">🥜</div>
+            <div class="wwo-card-icon"><img src="images/icons/wwo-dryfruits.jpg" alt="Dry Fruits" class="wwo-icon-img" loading="lazy"></div>
             <div class="wwo-card-label">ड्राई फ्रूट्स</div>
             <div class="wwo-card-sub">Premium Quality Dry Fruits<br><span class="wwo-card-note">उच्च कोटि (Premium Quality)</span></div>
           </div>
@@ -376,17 +385,23 @@
       <!-- ── Free Home Delivery Banner ────────────────────────── -->
       <div class="delivery-banner" aria-label="Free home delivery information">
         <div class="delivery-banner-trust">
-          <span class="delivery-banner-icon">📢</span>
+          <span class="delivery-banner-icon">
+            <svg class="icon delivery-svg-icon" aria-hidden="true"><use href="#icon-shield-check"></use></svg>
+          </span>
           <p class="delivery-banner-trust-text">एक बार ऑर्डर करें और हमारी क्वालिटी चेक करें</p>
           <p class="delivery-banner-trust-sub">हम आपको विश्वास दिलाते हैं कि आपको क्वालिटी जरूर पसंद आएगी।</p>
         </div>
         <div class="delivery-banner-main">
-          <span class="delivery-banner-truck">🚚</span>
+          <span class="delivery-banner-truck">
+            <svg class="icon delivery-svg-icon delivery-svg-icon--truck" aria-hidden="true"><use href="#icon-truck"></use></svg>
+          </span>
           <p class="delivery-banner-free">FREE</p>
           <p class="delivery-banner-delivery">HOME DELIVERY</p>
         </div>
         <div class="delivery-banner-cta">
-          <span class="delivery-banner-icon">📍</span>
+          <span class="delivery-banner-icon">
+            <svg class="icon delivery-svg-icon" aria-hidden="true"><use href="#icon-home"></use></svg>
+          </span>
           <p class="delivery-banner-cta-text">घर बैठे ऑर्डर करें</p>
           <p class="delivery-banner-cta-sub">और पाएं बिल्कुल <strong>फ्री होम डिलीवरी!</strong></p>
         </div>
@@ -395,7 +410,10 @@
       <!-- Footer -->
       <footer class="site-footer" role="contentinfo">
         <div class="footer-brand">
-          <p class="footer-brand-name">🪷 Radha Rani Store</p>
+          <p class="footer-brand-name">
+            <img src="images/logo.png" alt="" class="footer-brand-logo" aria-hidden="true">
+            Radha Rani Store
+          </p>
           <p class="footer-brand-tagline">Your Local Grocery Store</p>
         </div>
         <div class="footer-grid">
@@ -411,9 +429,9 @@
           </div>
           <div class="footer-col">
             <p class="footer-col-title">Contact</p>
-            <p>📍 <a id="footer-address-link" href="https://www.google.com/maps/place/Radha+Rani+Store/@28.3914,77.3066,17z/data=!4m2!3m1!1s0x0:0xad864dcaad45f2c7" target="_blank" rel="noopener noreferrer" class="footer-map-link"><span id="footer-address">Main Market, Your Town, Haryana</span></a></p>
-            <p>📞 <span id="footer-phone">+91 99999 99999</span></p>
-            <p>🕒 <span id="footer-hours">9 AM – 9 PM, All Days</span></p>
+            <p><svg class="icon footer-contact-icon" aria-hidden="true"><use href="#icon-home"></use></svg> <a id="footer-address-link" href="https://www.google.com/maps/place/Radha+Rani+Store/@28.3914,77.3066,17z/data=!4m2!3m1!1s0x0:0xad864dcaad45f2c7" target="_blank" rel="noopener noreferrer" class="footer-map-link"><span id="footer-address">Main Market, Your Town, Haryana</span></a></p>
+            <p><svg class="icon footer-contact-icon" aria-hidden="true"><use href="#icon-phone"></use></svg> <span id="footer-phone">+91 99999 99999</span></p>
+            <p><svg class="icon footer-contact-icon" aria-hidden="true"><use href="#icon-zap"></use></svg> <span id="footer-hours">9 AM – 9 PM, All Days</span></p>
             <div class="footer-map-embed">
               <iframe
                 title="Radha Rani Store on Google Maps"
@@ -430,7 +448,9 @@
         </div>
         <p class="footer-bottom">
           © 2026 Radha Rani Store. All rights reserved.
-          <a href="admin.html" class="footer-admin-link" title="Admin Panel">⚙️</a>
+          <a href="admin.html" class="footer-admin-link" title="Admin Panel">
+            <svg class="icon" aria-hidden="true" style="width:14px;height:14px;"><use href="#icon-zap"></use></svg>
+          </a>
         </p>
       </footer>
 
@@ -462,13 +482,15 @@
 
       <div class="screen-title-bar">
         <button class="btn-back" id="btn-cart-back" data-nav="home" aria-label="Go back">← Back</button>
-        <span aria-hidden="true">🛒</span>
+        <svg class="icon screen-title-icon" aria-hidden="true"><use href="#icon-shopping-cart"></use></svg>
         <h2 class="screen-title">Your Cart</h2>
       </div>
 
       <!-- Empty State -->
       <div id="cart-empty-state" class="empty-state" style="display:none;" aria-live="polite">
-        <div class="empty-state-icon">🛒</div>
+        <div class="empty-state-icon">
+          <svg class="icon" aria-hidden="true" style="width:48px;height:48px;color:var(--text-muted);"><use href="#icon-shopping-cart"></use></svg>
+        </div>
         <p class="empty-state-title">Your cart is empty</p>
         <p class="empty-state-subtitle">Add some groceries to get started!</p>
         <button class="btn-secondary" data-action="browse" style="margin-top:8px;" id="btn-cart-browse">
@@ -498,7 +520,8 @@
 
         <div class="cart-actions-row">
           <button class="btn-clear-cart" id="btn-clear-cart" aria-label="Clear all items from cart">
-            🗑 Clear Cart
+            <svg class="icon" aria-hidden="true" style="width:15px;height:15px;"><use href="#icon-shopping-bag"></use></svg>
+            Clear Cart
           </button>
           <button class="btn-primary" id="btn-proceed-checkout" aria-label="Proceed to checkout">
             Proceed to Order →
@@ -515,7 +538,7 @@
 
       <div class="screen-title-bar">
         <button class="btn-back" id="btn-checkout-back" data-nav="cart" aria-label="Go back to cart">← Back</button>
-        <span aria-hidden="true">📋</span>
+        <svg class="icon screen-title-icon" aria-hidden="true"><use href="#icon-shopping-bag"></use></svg>
         <h2 class="screen-title">Order Details</h2>
       </div>
 

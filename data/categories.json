@@ -3,48 +3,56 @@
     "id": "dal-pulses",
     "name": "Dal & Pulses",
     "icon": "🫘",
+    "iconImg": "images/icons/cat-dal.jpg",
     "image": "images/categories/dal.webp"
   },
   {
     "id": "rice-grains",
     "name": "Rice & Grains",
     "icon": "🌾",
+    "iconImg": "images/icons/cat-rice.jpg",
     "image": "images/categories/rice.webp"
   },
   {
     "id": "spices",
     "name": "Spices",
     "icon": "🌶️",
+    "iconImg": "images/icons/cat-spices.jpg",
     "image": "images/categories/spices.webp"
   },
   {
     "id": "dry-fruits",
     "name": "Dry Fruits & Nuts",
     "icon": "🥜",
+    "iconImg": "images/icons/cat-dry-fruits.jpg",
     "image": "images/categories/dry-fruits.webp"
   },
   {
     "id": "oil-ghee",
     "name": "Oil & Ghee",
     "icon": "🫙",
+    "iconImg": "images/icons/cat-oil.jpg",
     "image": "images/categories/oil.webp"
   },
   {
     "id": "snacks",
     "name": "Biscuits & Snacks",
     "icon": "🍪",
+    "iconImg": "images/icons/cat-snacks.jpg",
     "image": "images/categories/snacks.webp"
   },
   {
     "id": "beverages",
     "name": "Tea & Beverages",
     "icon": "☕",
+    "iconImg": "images/icons/cat-beverages.jpg",
     "image": "images/categories/beverages.webp"
   },
   {
     "id": "other",
     "name": "Other Grocery",
     "icon": "🛒",
+    "iconImg": "images/icons/cat-other.jpg",
     "image": "images/categories/other.webp"
   }
 ]
