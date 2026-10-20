@@ -30,6 +30,8 @@
     align-items: center;
     gap: 2px;
   }
+  /* Show header search bar */
+  .header-search-wrap { display: flex; }
   .bottom-nav { display: none; }
 
   /* Hero — tablet: stack vertically, wider content */
@@ -111,6 +113,7 @@
   .site-header { height: 76px; }
   .header-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
   .header-nav a { font-size: 15px; }
+  .header-search-wrap { max-width: 420px; }
 
   /* Hero — 2-column grid layout */
   .hero { padding: 64px 40px 60px; }

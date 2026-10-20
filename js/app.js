@@ -280,7 +280,7 @@ const App = (() => {
 
     // Initialize modules
     Products.init(products, categories);
-    Search.init(products);
+    Search.init(products, categories);
 
     // Render homepage sections
     Products.renderCategories();

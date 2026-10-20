@@ -129,7 +129,20 @@
         <a href="#" data-nav="contact"  id="nav-contact">Contact</a>
       </nav>
 
-      <!-- Right: Cart + Hamburger (search removed — lives in hero) -->
+      <!-- Header Search Bar -->
+      <div class="header-search-wrap" id="header-search-wrap" role="search">
+        <svg class="icon header-search-icon" aria-hidden="true"><use href="#icon-search"></use></svg>
+        <input
+          type="search"
+          id="header-search-input"
+          placeholder="Search products…"
+          aria-label="Search grocery products"
+          autocomplete="off"
+        />
+        <button class="header-search-clear" id="header-search-clear" aria-label="Clear search" style="display:none;">✕</button>
+      </div>
+
+      <!-- Right: Cart + Hamburger -->
       <div class="header-right">
         <button class="btn-cart-header" data-action="cart" id="header-cart-btn" aria-label="Open cart">
           <svg class="icon cart-icon" aria-hidden="true"><use href="#icon-shopping-cart"></use></svg>
@@ -241,11 +254,19 @@
 
             <!-- All 6 cards + basket icon orbit inside this stage -->
             <div class="hero-visual-stage">
-              <svg class="icon hero-visual-icon" aria-hidden="true"><use href="#icon-shopping-basket"></use></svg>
+              <!-- Dashed orbit ring for visual depth -->
+              <svg class="hero-orbit-ring" aria-hidden="true" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="170" cy="170" r="148" fill="none" stroke="rgba(201,130,43,0.18)" stroke-width="1.5" stroke-dasharray="6 10" />
+                <circle cx="170" cy="170" r="116" fill="none" stroke="rgba(31,107,69,0.10)" stroke-width="1" stroke-dasharray="4 14" />
+              </svg>
+              <!-- Real basket product photo -->
+              <img class="hero-visual-img" src="images/hero-basket.jpg" alt="Grocery basket with store items" />
 
               <!-- Float card 1 — 12 o'clock -->
               <div class="hero-float-card hero-float-card--quality">
-                <svg class="icon float-icon" aria-hidden="true" style="color: var(--brand-green);"><use href="#icon-shield-check"></use></svg>
+                <div class="float-icon-wrap">
+                  <svg class="icon float-icon" aria-hidden="true"><use href="#icon-shield-check"></use></svg>
+                </div>
                 <div>
                   <div>100% Quality</div>
                   <div class="hero-float-card-sub">Guaranteed Fresh</div>
@@ -254,7 +275,9 @@
 
               <!-- Float card 2 — 6 o'clock -->
               <div class="hero-float-card hero-float-card--price">
-                <svg class="icon float-icon" aria-hidden="true" style="color: var(--primary);"><use href="#icon-tag"></use></svg>
+                <div class="float-icon-wrap">
+                  <svg class="icon float-icon" aria-hidden="true"><use href="#icon-tag"></use></svg>
+                </div>
                 <div>
                   <div>Best Prices</div>
                   <div class="hero-float-card-sub">Daily Deals</div>

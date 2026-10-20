@@ -290,6 +290,132 @@ h1, h2, h3, h4 { line-height: 1.2; }
   border: 2px solid #fff;
 }
 
+/* ── Header Search Bar ─────────────────────────────────────── */
+.header-search-wrap {
+  display: none; /* shown on desktop via media query */
+  position: relative;
+  align-items: center;
+  flex: 1;
+  max-width: 360px;
+  margin: 0 16px;
+}
+.header-search-wrap input {
+  width: 100%;
+  padding: 9px 36px 9px 38px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--border);
+  background: var(--bg-section);
+  font-size: 13px;
+  font-family: 'Inter', 'Poppins', sans-serif;
+  color: var(--text);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+}
+.header-search-wrap input::placeholder { color: var(--text-light); }
+.header-search-wrap input:focus {
+  border-color: var(--primary);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(232,61,132,0.10);
+}
+.header-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: color var(--transition);
+}
+.header-search-wrap input:focus ~ .header-search-icon,
+.header-search-wrap:focus-within .header-search-icon {
+  color: var(--primary);
+}
+.header-search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--text-light);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 10px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.header-search-clear:hover { background: var(--text-muted); }
+
+/* Search results dropdown panel */
+.search-suggestions {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  z-index: 200;
+  overflow: hidden;
+  animation: dropIn 0.15s ease;
+  max-height: 320px;
+  overflow-y: auto;
+}
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.search-suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+  transition: background var(--transition);
+  font-size: 13px;
+}
+.search-suggestion-item:hover {
+  background: var(--bg-section);
+}
+.search-suggestion-item .sug-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.search-suggestion-item .sug-name {
+  font-weight: 600;
+  color: var(--text);
+}
+.search-suggestion-item .sug-cat {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+.search-suggestion-empty {
+  padding: 16px 14px;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+}
+.search-suggestion-footer {
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  text-align: center;
+  border-top: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.search-suggestion-footer:hover { background: var(--bg-section); }
+
 /* ── Hero Section ──────────────────────────────────────────── */
 .hero {
   background: #FFFDF7;
@@ -466,83 +592,130 @@ h1, h2, h3, h4 { line-height: 1.2; }
 .hero-visual-stage::before {
   content: "";
   position: absolute;
-  /* Glow circle is 220px, independently centered in the 360px stage */
-  width: 220px;
-  height: 220px;
+  /* Warm amber/cream glow — fresh market artisanal feel */
+  width: 260px;
+  height: 260px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* Layered multi-ring glow */
   background: radial-gradient(circle at 50% 50%,
-    rgba(232,61,132,0.30) 0%,
-    rgba(232,61,132,0.14) 40%,
-    rgba(31,107,69,0.08)  70%,
-    transparent           100%);
+    rgba(255,237,200,0.80) 0%,
+    rgba(255,215,140,0.40) 35%,
+    rgba(201,130,43,0.10)  65%,
+    transparent            100%);
   border-radius: 50%;
-  box-shadow: 0 0 0 18px rgba(232,61,132,0.06),
-              0 0 0 36px rgba(232,61,132,0.03);
+  box-shadow: 0 0 0 20px rgba(255,237,200,0.18),
+              0 0 0 44px rgba(255,237,200,0.07);
   z-index: 0;
 }
-.hero-visual-icon {
-  position: relative;
+
+/* Orbit ring SVG (positioned absolutely over the stage) */
+.hero-orbit-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 340px;
+  height: 340px;
   z-index: 1;
-  width: 100px;
-  height: 100px;
-  color: #C9822B;
-  /* Warm amber glow for a richer, premium feel */
-  filter: drop-shadow(0 16px 32px rgba(201,130,43,0.25))
-          drop-shadow(0 4px 8px rgba(201,130,43,0.15));
-  animation: heroFloat 4s ease-in-out infinite;
-  stroke-width: 1.2;           /* slightly bolder lines at large size */
+  pointer-events: none;
+  animation: orbitSpin 40s linear infinite;
+}
+@keyframes orbitSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Real basket product image */
+.hero-visual-img {
+  position: relative;
+  z-index: 2;
+  width: 210px;
+  height: 210px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow:
+    0 20px 60px rgba(201,130,43,0.22),
+    0 8px 24px rgba(0,0,0,0.12),
+    0 0 0 6px rgba(255,255,255,0.90),
+    0 0 0 8px rgba(201,130,43,0.14);
+  animation: heroFloat 4.2s ease-in-out infinite;
 }
 @keyframes heroFloat {
-  0%, 100% { transform: translateY(0); }
+  0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-10px); }
 }
 
-/* Floating micro-cards on the hero visual */
+/* Floating micro-cards on the hero visual — Glassmorphism style */
 .hero-float-card {
   position: absolute;
-  z-index: 2;
-  /* Subtle gradient wash + left accent stripe for premium feel */
-  background: linear-gradient(135deg, #fff 80%, rgba(232,61,132,0.04) 100%);
-  border-left: 3px solid var(--primary);
-  border-radius: var(--radius);
-  padding: 8px 14px;
+  z-index: 4;
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.70);
+  border-radius: 16px;
+  padding: 10px 16px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.12), 0 1px 4px rgba(0,0,0,0.06);
+  gap: 10px;
+  box-shadow:
+    0 8px 32px rgba(31,107,69,0.10),
+    0 2px 8px rgba(0,0,0,0.07),
+    inset 0 1px 0 rgba(255,255,255,0.90);
   font-size: 12px;
   font-weight: 600;
   color: var(--text);
   white-space: nowrap;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
-.hero-float-card .float-icon { width: 20px; height: 20px; flex-shrink: 0; }
-.hero-float-card-sub { font-size: 10px; font-weight: 400; color: var(--text-muted); margin-top: 1px; }
+.hero-float-card:hover {
+  box-shadow:
+    0 12px 40px rgba(31,107,69,0.16),
+    0 4px 12px rgba(0,0,0,0.10);
+  transform: translateX(-50%) translateY(-2px) !important;
+}
+/* Icon circle badge inside cards */
+.hero-float-card .float-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.hero-float-card .float-icon { width: 16px; height: 16px; flex-shrink: 0; }
+.hero-float-card-sub { font-size: 10px; font-weight: 400; color: var(--text-muted); margin-top: 2px; letter-spacing: 0.01em; }
 
-/* ── Clock positions for all 6 orbiting cards ───────────── */
+/* ── Clock positions for all orbiting cards ───────────── */
 
 /* 12 o'clock — Quality */
 .hero-float-card--quality {
-  top: 6px;
+  top: 2px;
   left: 50%;
   transform: translateX(-50%);
-  border-left-color: var(--brand-green);
-  background: linear-gradient(135deg, #fff 80%, rgba(31,107,69,0.04) 100%);
-  animation: floatCard 3.5s ease-in-out 0s infinite;
+  animation: floatCard 3.6s ease-in-out 0s infinite;
+}
+.hero-float-card--quality .float-icon-wrap {
+  background: rgba(31,107,69,0.10);
+  color: var(--brand-green);
 }
 /* 6 o'clock — Best Prices */
 .hero-float-card--price {
-  bottom: 6px;
+  bottom: 2px;
   left: 50%;
   right: auto;
   transform: translateX(-50%);
-  animation: floatCard 3.5s ease-in-out 1.75s infinite;
+  animation: floatCard 3.6s ease-in-out 1.8s infinite;
+}
+.hero-float-card--price .float-icon-wrap {
+  background: rgba(232,61,132,0.10);
+  color: var(--primary-dark);
 }
 @keyframes floatCard {
   0%, 100% { transform: translateX(-50%) translateY(0px); }
-  50%       { transform: translateX(-50%) translateY(-7px); }
+  50%       { transform: translateX(-50%) translateY(-8px); }
 }
 /* Override for non-centered cards — no translateX needed */
 .hero-float-card--price-side { /* placeholder hook */ }
@@ -550,71 +723,98 @@ h1, h2, h3, h4 { line-height: 1.2; }
 /* ── Hero Feature Bubbles (now orbit inside stage) ──────── */
 .hero-bubbles { display: none; } /* old wrapper — retired */
 
+/* ── Hero Feature Bubbles — Unified white + colored icon ── */
 .hero-bubble {
   position: absolute;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 8px 14px;
-  border-radius: var(--radius-pill);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.10);
-  cursor: default;
+  gap: 7px;
+  padding: 9px 16px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text);
   white-space: nowrap;
-  z-index: 2;
-  /* Fade-up entry */
-  animation: bubbleFadeUp 0.5s ease both, floatBubble 3.5s ease-in-out infinite;
+  z-index: 4;
+  cursor: default;
+  /* Unified white base */
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,0,0,0.07);
+  box-shadow:
+    0 2px 12px rgba(0,0,0,0.07),
+    0 0 0 1px rgba(0,0,0,0.04),
+    inset 0 1px 0 rgba(255,255,255,0.95);
+  /* Fade-up entry + organic float */
+  animation: bubbleFadeUp 0.55s ease both, floatBubble var(--float-dur, 3.6s) ease-in-out var(--float-delay, 0s) infinite;
 }
 @keyframes bubbleFadeUp {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes floatBubble {
   0%, 100% { translate: 0 0px; }
-  50%       { translate: 0 -7px; }
+  50%       { translate: 0 var(--float-amp, -7px); }
+}
+.hero-bubble:hover {
+  box-shadow:
+    0 6px 24px rgba(0,0,0,0.12),
+    0 0 0 1px rgba(0,0,0,0.06);
+  transform: translateY(-2px);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+/* Colored icon inside each bubble */
+.hero-bubble .icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
 }
 
 /* 2 o'clock — Pure Spices (top-right) */
 .hero-bubble--spices {
-  top: 62px;
-  right: 4px;
-  animation-delay: 0s, 0.58s;
+  top: 58px;
+  right: 2px;
+  animation-delay: 0s, 0.55s;
+  --float-dur: 3.2s;
+  --float-amp: -5px;
 }
+.hero-bubble--spices .icon { color: #E05C2C; } /* warm chili orange */
+
 /* 4 o'clock — Free Home Delivery (bottom-right) */
 .hero-bubble--delivery {
-  bottom: 62px;
-  right: -8px; /* wider label, needs extra room */
-  animation-delay: 0.15s, 1.17s;
+  bottom: 58px;
+  right: -6px;
+  animation-delay: 0.15s, 1.1s;
+  --float-dur: 3.9s;
+  --float-amp: -9px;
 }
+.hero-bubble--delivery .icon { color: var(--brand-green); }
+
 /* 8 o'clock — Premium Dry Fruits (bottom-left) */
 .hero-bubble--dryfruits {
-  bottom: 62px;
-  left: -8px;
-  animation-delay: 0.3s, 2.33s;
+  bottom: 58px;
+  left: -6px;
+  animation-delay: 0.3s, 2.2s;
+  --float-dur: 4.1s;
+  --float-amp: -6px;
 }
+.hero-bubble--dryfruits .icon { color: #B5651D; } /* warm brown */
+
 /* 10 o'clock — Trusted by Families (top-left) */
 .hero-bubble--trusted {
-  top: 62px;
-  left: 4px;
-  animation-delay: 0.45s, 2.92s;
+  top: 58px;
+  left: 2px;
+  animation-delay: 0.45s, 2.8s;
+  --float-dur: 3.5s;
+  --float-amp: -8px;
 }
+.hero-bubble--trusted .icon { color: var(--primary); }
 
-.hero-bubble:hover {
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-}
-/* Colour variants */
-.hero-bubble--brand {
-  background: var(--brand-green-lt);
-  color: var(--brand-green);
-  border: 1.5px solid rgba(31,107,69,0.15);
-}
-.hero-bubble--accent {
-  background: #fce7f3;
-  color: var(--primary-dark);
-  border: 1.5px solid rgba(232,61,132,0.15);
-}
+/* Remove old color variant classes (kept for compat, now no-op) */
+.hero-bubble--brand  {}
+.hero-bubble--accent {}
 
 /* ── Section Common ────────────────────────────────────────── */
 .section { padding: 28px 16px; }
